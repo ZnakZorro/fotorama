@@ -64,20 +64,6 @@ var galerie=[
 				menu.appendChild(bat);
 			}
 			
-//document.addEventListener('DOMContentLoaded', function(){
-//    var myPhotoSwipe = PhotoSwipe.attach( window.document.querySelectorAll('#Gallery a'), {} );
-//}, false);
-
-			
-		/*
-		(function(window, PhotoSwipe){
-			document.addEventListener('DOMContentLoaded', function(){
-				var
-					options = {},
-					instance = PhotoSwipe.attach( window.document.querySelectorAll('#Gallery a'), options );
-			}, false);
-		}(window, window.Code.PhotoSwipe));
-		*/
 
     }
 
@@ -85,18 +71,8 @@ var galerie=[
 	
 	
 	function setFolderId(id){
-	
-	
-	    
-	
 		window.localStorage.setItem('___fotorama',id);
 		installIMG();
-		//window.location.reload();
-		
-		
-		//$('#Gallery').innerHTML='';
-		//installIMG(galerie[i].folder,galerie[i].ile);
-		//window.Code.PhotoSwipe;
 	}
 	
 	function installIMG(){
@@ -118,7 +94,6 @@ var galerie=[
 				a.href=fotka;
 				img.src=fotka;
 				img.alt=title;
-				
 				img.setAttribute('onLoad','loadimg('+i+','+ile+')');
 				li.className=folder;
 			a.appendChild(img);
@@ -147,9 +122,8 @@ var galerie=[
     function onPause() {
     }
 	
-    //function onOnline() {    }
-	
-	//function onOffline() {		alert('brak sieci');	}
+    //function onOnline(){}
+	//function onOffline(){alert('brak sieci');}
 	
 	
 	function onBackKeyDown() {
@@ -162,23 +136,6 @@ var galerie=[
 		
     }
     
-
-    
-	
-/*
-
-		(function(window, PhotoSwipe){
-			document.addEventListener('DOMContentLoaded', function(){
-			installIMG();
-				var
-					options = {},
-					instance = PhotoSwipe.attach( window.document.querySelectorAll('#Gallery a'), options );
-			}, false);
-		}(window, window.Code.PhotoSwipe));
-*/
-
-
-
 //ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 		
 		var $=function (id) {
@@ -224,7 +181,6 @@ var galerie=[
 
 </div>
 
-<br /><br />
-<br /><br />
+<br /><br /><br />
 </body>
 </html>
