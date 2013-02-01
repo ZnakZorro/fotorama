@@ -34,19 +34,13 @@ var galerie=[
 ];
 //http://konfiguracja.c0.pl/webpl/encje.html
 
-
-
-
     function onLoad() {
-	installIMG();
         document.addEventListener("deviceready", onDeviceReady, false);
 		try {if (device.uuid) {}	}
 		catch(err) {onDeviceReady();}
-		
     }
     
 		function onDeviceReady() {
-
 			document.addEventListener("resume", onResume, false);
 			document.addEventListener("pause", onPause, false);
 			//document.addEventListener("online", onOnline, false);
@@ -64,10 +58,6 @@ var galerie=[
 				menu.appendChild(bat);
 			}
 			
-//document.addEventListener('DOMContentLoaded', function(){
-//    var myPhotoSwipe = PhotoSwipe.attach( window.document.querySelectorAll('#Gallery a'), {} );
-//}, false);
-
 			
 		/*
 		(function(window, PhotoSwipe){
@@ -80,36 +70,26 @@ var galerie=[
 		*/
 
     }
-
-
 	
 	
 	function setFolderId(id){
-	
-	
-	    
-	
 		window.localStorage.setItem('___fotorama',id);
-		installIMG();
-		//window.location.reload();
-		
-		
+		window.location.reload();
 		//$('#Gallery').innerHTML='';
 		//installIMG(galerie[i].folder,galerie[i].ile);
 		//window.Code.PhotoSwipe;
 	}
 	
 	function installIMG(){
-	$('#Gallery').innerHTML='';
 		var id = window.localStorage.getItem('___fotorama') || 0;
 		var folder = galerie[id].folder;
 		var ile =    galerie[id].ile;
 		var title =  galerie[id].title;
 		$('#title').innerText=title;
 		
-		ile;
+		ile++;
 		var galeria=$('#Gallery');
-		for (var i=1; i<=ile; i++){
+		for (var i=1; i<ile; i++){
 			//<li><a href="foto/kapsula/foto-001.jpg"><img src="foto/kapsula/foto-001.jpg" alt="Foto  001" /></a></li>
 			var li = document.createElement('LI');
 			var a = document.createElement('A');
@@ -118,22 +98,12 @@ var galerie=[
 				a.href=fotka;
 				img.src=fotka;
 				img.alt=title;
-				
-				img.setAttribute('onLoad','loadimg('+i+','+ile+')');
 				li.className=folder;
 			a.appendChild(img);
 			li.appendChild(a);
 			galeria.appendChild(li);
 		}
 	}
-	
-	function loadimg(i,max){
-		if (i==max) {
-				(function(window, PhotoSwipe){
-						var	instance = PhotoSwipe.attach( window.document.querySelectorAll('#Gallery a'), {} );					
-				}(window, window.Code.PhotoSwipe));			
-			}
-	}	
 	
 	function formatnr(nr){
 		if (nr<10)   return '00'+nr;
@@ -165,7 +135,7 @@ var galerie=[
 
     
 	
-/*
+
 
 		(function(window, PhotoSwipe){
 			document.addEventListener('DOMContentLoaded', function(){
@@ -175,7 +145,7 @@ var galerie=[
 					instance = PhotoSwipe.attach( window.document.querySelectorAll('#Gallery a'), options );
 			}, false);
 		}(window, window.Code.PhotoSwipe));
-*/
+
 
 
 
