@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PhotoSwipe</title>
+	<meta name="author" content="Ste Brennan - Code Computerlove - http://www.codecomputerlove.com/" />
+	<!--meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" /-->
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	
+	<link href="pliki/bootstrap.mi.css" type="text/css" rel="stylesheet" />	
+	<link href="pliki/styles.css" type="text/css" rel="stylesheet" />	
+	<link href="pliki/photoswipe.css" type="text/css" rel="stylesheet" />
+	
+<style>
+.gallery li img {max-height: 200%;}
+</style>	
+	
+	
+	<script type="text/javascript" src="pliki/klass.min.js"></script>
+	<script type="text/javascript" src="pliki/code.photoswipe-3.0.5.min.js"></script>
+	
+	
+	<script type="text/javascript">
+
+		(function(window, PhotoSwipe){
+		
+			document.addEventListener('DOMContentLoaded', function(){
+			
+				var
+					options = {},
+					instance = PhotoSwipe.attach( window.document.querySelectorAll('#Gallery a'), options );
+			
+			}, false);
+			
+			
+		}(window, window.Code.PhotoSwipe));
+		
+	</script>
+	
+</head>
+<body>
+
+
+
+<div id="MainContent">
+
+
+	
+	<ul id="Gallery" class="gallery">
+		
+		<li><a href="foto/fotoskany/foto-001.jpg"><img src="foto/fotoskany/foto-001.jpg" alt="Foto  001" /></a></li>
+		<li><a href="foto/fotoskany/foto-002.jpg"><img src="foto/fotoskany/foto-002.jpg" alt="Foto  002" /></a></li>
+		<li><a href="foto/fotoskany/foto-003.jpg"><img src="foto/fotoskany/foto-003.jpg" alt="Foto  003" /></a></li>
+		<li><a href="foto/fotoskany/foto-004.jpg"><img src="foto/fotoskany/foto-004.jpg" alt="Foto  004" /></a></li>
+		<li><a href="foto/fotoskany/foto-005.jpg"><img src="foto/fotoskany/foto-005.jpg" alt="Foto  005" /></a></li>
+		<li><a href="foto/fotoskany/foto-006.jpg"><img src="foto/fotoskany/foto-006.jpg" alt="Foto  006" /></a></li>
+		<li><a href="foto/fotoskany/foto-007.jpg"><img src="foto/fotoskany/foto-007.jpg" alt="Foto  007" /></a></li>
+		<li><a href="foto/fotoskany/foto-008.jpg"><img src="foto/fotoskany/foto-008.jpg" alt="Foto  008" /></a></li>
+		<li><a href="foto/fotoskany/foto-009.jpg"><img src="foto/fotoskany/foto-009.jpg" alt="Foto  009" /></a></li>
+		<li><a href="foto/fotoskany/foto-010.jpg"><img src="foto/fotoskany/foto-010.jpg" alt="Foto  010" /></a></li>
+		<li><a href="foto/fotoskany/foto-011.jpg"><img src="foto/fotoskany/foto-011.jpg" alt="Foto  011" /></a></li>
+		<li><a href="foto/fotoskany/foto-012.jpg"><img src="foto/fotoskany/foto-012.jpg" alt="Foto  012" /></a></li>
+		<li><a href="foto/fotoskany/foto-013.jpg"><img src="foto/fotoskany/foto-013.jpg" alt="Foto  013" /></a></li>
+		<li><a href="foto/fotoskany/foto-014.jpg"><img src="foto/fotoskany/foto-014.jpg" alt="Foto  014" /></a></li>
+		<li><a href="foto/fotoskany/foto-015.jpg"><img src="foto/fotoskany/foto-015.jpg" alt="Foto  015" /></a></li>
+
+		
+	</ul>
+	
+</div>	
+
+	
+<a href="index.html" class="btn btn-inverse">Fotorama</a>
+<a href="fotoskany.html" class="btn btn-inverse">Fotoskany</a>
+
+
+</body>
+</html>
