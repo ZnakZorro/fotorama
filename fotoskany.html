@@ -1,49 +1,126 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>PhotoSwipe</title>
-	<meta name="author" content="Ste Brennan - Code Computerlove - http://www.codecomputerlove.com/" />
-	<!--meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" /-->
+	<title>PhotoRama</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="ZnakZorro" /> 
+	<meta name="date" content="2013-02-01" /> 
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	
-	<link href="pliki/bootstrap.mi.css" type="text/css" rel="stylesheet" />	
-	<link href="pliki/styles.css" type="text/css" rel="stylesheet" />	
-	<link href="pliki/photoswipe.css" type="text/css" rel="stylesheet" />
+<link href="pliki/bootstrap.mi.css" type="text/css" rel="stylesheet" />	
+<link href="pliki/styles.css" type="text/css" rel="stylesheet" />	
+<link href="pliki/photoswipe.css" type="text/css" rel="stylesheet" />
 	
 <style>
-.gallery li img {max-height: 200%;}
-</style>	
+.gallery li img {max-height: 190%;}
+</style>
+	
+<script type="text/javascript" src="pliki/klass.min.js"></script>
+<script type="text/javascript" src="pliki/code.photoswipe-3.0.5.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="cordova-2.2.0.js"></script>
 	
 	
-	<script type="text/javascript" src="pliki/klass.min.js"></script>
-	<script type="text/javascript" src="pliki/code.photoswipe-3.0.5.min.js"></script>
-	
-	
-	<script type="text/javascript">
+<script type="text/javascript">
 
+    function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+		try {if (device.uuid) {}	}
+		catch(err) {onDeviceReady();}
+    }
+    
+		function onDeviceReady() {
+			console.log('start');			
+			document.addEventListener("resume", onResume, false);
+			document.addEventListener("pause", onPause, false);
+			//document.addEventListener("online", onOnline, false);
+			//document.addEventListener("offline", onOffline, false);
+			document.addEventListener("backbutton", onBackKeyDown, false);
+			document.addEventListener("menubutton", onMenuKeyDown, false);
+		/*
 		(function(window, PhotoSwipe){
-		
 			document.addEventListener('DOMContentLoaded', function(){
-			
 				var
 					options = {},
 					instance = PhotoSwipe.attach( window.document.querySelectorAll('#Gallery a'), options );
-			
 			}, false);
-			
-			
 		}(window, window.Code.PhotoSwipe));
+		*/
+
+    }
+	
+	
+    function onResume() {
+    }
+	
+    function onPause() {
+    }
+	
+    //function onOnline() {    }
+	
+	//function onOffline() {		alert('brak sieci');	}
+	
+	
+	function onBackKeyDown() {
+		navigator.app.backHistory();
+		document.getElementById("menu").style.display="block";		
+    }
+	
+	function onMenuKeyDown() {
+		document.getElementById("menu").style.display="block";
 		
-	</script>
+    }
+    
+
+    
+	
+
+
+		(function(window, PhotoSwipe){
+			document.addEventListener('DOMContentLoaded', function(){
+				var
+					options = {},
+					instance = PhotoSwipe.attach( window.document.querySelectorAll('#Gallery a'), options );
+			}, false);
+		}(window, window.Code.PhotoSwipe));
+
+
+
+
+//ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+		
+		var $=function (id) {
+			var prefix=id[0];
+			var iid=id.slice(1,id.length);
+			switch (prefix){
+				case '#':	return document.getElementById(iid);   			break;
+				case '.':	return document.getElementsByClassName(iid);  	break;
+				default:	return document.getElementsByTagName(id); 
+				}	
+			}
+
+		function koniec(){
+			try  {
+				navigator.app.exitApp();
+				}
+			catch(err) {
+				window.location.reload();
+			  }
+		}
+
+		function loadURL(url){
+			try  { navigator.app.loadUrl(url, { openExternal:true } );  }
+			catch(err) {
+			  window.location.href=url;
+			  }
+		}		
+//ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+	
+</script>
 	
 </head>
-<body>
-
-
+<body onLoad="onLoad()">
 
 <div id="MainContent">
-
-
 	
 	<ul id="Gallery" class="gallery">
 		
@@ -62,16 +139,17 @@
 		<li><a href="foto/fotoskany/foto-013.jpg"><img src="foto/fotoskany/foto-013.jpg" alt="Foto  013" /></a></li>
 		<li><a href="foto/fotoskany/foto-014.jpg"><img src="foto/fotoskany/foto-014.jpg" alt="Foto  014" /></a></li>
 		<li><a href="foto/fotoskany/foto-015.jpg"><img src="foto/fotoskany/foto-015.jpg" alt="Foto  015" /></a></li>
-
 		
 	</ul>
 	
 </div>	
 
-	
-<a href="index.html" class="btn btn-inverse">Fotorama</a>
-<a href="fotoskany.html" class="btn btn-inverse">Fotoskany</a>
+<button onClick="onMenuKeyDown();" class="btn btn-inverse">Menu</button>
 
+<div id="menu" style="width:100%; display:none; position:fixed; left:0; bottom:0px; background:white; color:black; padding:2px; z-index:2; border:1px solid black;"> 
+  	<button onClick="loadURL('index.html');"     class="btn btn-inverse">FotoRama</button>
+  	<button onClick="loadURL('fotoskany.html');" class="btn btn-inverse">FotoSkany</button>
+</div>
 
 </body>
 </html>
