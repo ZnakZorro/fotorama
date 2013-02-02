@@ -41,7 +41,6 @@ var menuOpen = false;
         document.addEventListener("deviceready", onDeviceReady, false);
 		try {if (device.uuid) {}	}
 		catch(err) {onDeviceReady();}
-		
     }
     
 		function onDeviceReady() {
@@ -117,11 +116,9 @@ var menuOpen = false;
 		return nr;
 	}
 	
-    function onResume() {
-    }
+    function onResume() {}
 	
-    function onPause() {
-    }
+    function onPause() {}
 	
     //function onOnline(){}
 	//function onOffline(){alert('brak sieci');}
@@ -133,8 +130,8 @@ var menuOpen = false;
     }
 	
 	function onMenuKeyDown() {
-		if (menuOpen) {document.getElementById("menu").style.display="none"; zapal();menuOpen=false;}
-		else          {document.getElementById("menu").style.display="block";zgas();menuOpen=true;}	
+		if (menuOpen) {document.getElementById("menu").style.display="none"; menuOpen=false;}
+		else          {document.getElementById("menu").style.display="block";menuOpen=true;}	
     }
     
 //ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -172,12 +169,12 @@ var menuOpen = false;
 <body onLoad="onLoad()">
 
 	<div id="MainContent">
+	<button style="float:left" onClick="onMenuKeyDown();" class="btn">Menu</button>
+	<button style="float:right" onClick="window.location.href='index---reload.html';" class="btn">Reload</button>
+
 		<h1 id="title"></h1>
 		<ul id="Gallery" class="gallery"></ul>
 	</div>	
-
-<button onClick="onMenuKeyDown();" class="btn">Menu</button>
-<button onClick="loadURL('index---reload.html');" class="btn">Reload</button>
 
 <div id="menu" style=""> </div>
 

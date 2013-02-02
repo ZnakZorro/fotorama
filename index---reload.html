@@ -31,6 +31,9 @@ var galerie=[
 ];
 //http://konfiguracja.c0.pl/webpl/encje.html
 
+var zaladowany=false;
+var menuOpen = false;
+
     function onLoad() {
         document.addEventListener("deviceready", onDeviceReady, false);
 		try {if (device.uuid) {}	}
@@ -38,6 +41,9 @@ var galerie=[
     }
     
 		function onDeviceReady() {
+			if (zaladowany) return true;
+			zaladowany=true;
+			
 			document.addEventListener("resume", onResume, false);
 			document.addEventListener("pause", onPause, false);
 			//document.addEventListener("online", onOnline, false);
@@ -108,11 +114,9 @@ var galerie=[
 		return nr;
 	}
 	
-    function onResume() {
-    }
+    function onResume() {}
 	
-    function onPause() {
-    }
+    function onPause() {}
 	
     //function onOnline() {    }
 	
@@ -125,10 +129,9 @@ var galerie=[
     }
 	
 	function onMenuKeyDown() {
-		document.getElementById("menu").style.display="block";
-		
+		if (menuOpen) {document.getElementById("menu").style.display="none"; menuOpen=false;}
+		else          {document.getElementById("menu").style.display="block";menuOpen=true;}	
     }
-    
 
     
 	
@@ -181,12 +184,12 @@ var galerie=[
 <body onLoad="onLoad()">
 
 	<div id="MainContent">
+	<button style="float:left" onClick="onMenuKeyDown();" class="btn">Menu</button>
+	<button style="float:right" onClick="window.location.href='index.html';" class="btn">Index</button>
 		<h1 id="title"></h1>
 		<ul id="Gallery" class="gallery"></ul>
 	</div>	
 
-<button onClick="onMenuKeyDown();" class="btn">Menu</button>
-<button onClick="loadURL('index.html');" class="btn">index</button>
 
 <div id="menu"> </div>
 
