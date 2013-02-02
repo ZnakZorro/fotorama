@@ -13,10 +13,8 @@
 <link href="pliki/photoswipe.css" type="text/css" rel="stylesheet" />
 	
 <style>
-h1 {font-size:18px; padding:0; margin:5px 0; text-align:center;}
-.gallery li.fotoskany img {max-height:192%;}
-.gallery li.balustrady img {max-height:155%;}
-.gallery li.oktawa img {max-height: 130%;margin-left: -14%;margin-top: -16%;}
+
+
 </style>
 	
 <script type="text/javascript" src="pliki/klass.min.js"></script>
@@ -35,7 +33,8 @@ var galerie=[
 //http://konfiguracja.c0.pl/webpl/encje.html
 
 
-
+var zaladowany=false;
+var menuOpen = false;
 
     function onLoad() {
 	installIMG();
@@ -46,6 +45,8 @@ var galerie=[
     }
     
 		function onDeviceReady() {
+			if (zaladowany) return true;
+			zaladowany=true;
 
 			document.addEventListener("resume", onResume, false);
 			document.addEventListener("pause", onPause, false);
@@ -132,8 +133,8 @@ var galerie=[
     }
 	
 	function onMenuKeyDown() {
-		document.getElementById("menu").style.display="block";
-		
+		if (menuOpen) {document.getElementById("menu").style.display="none"; zapal();menuOpen=false;}
+		else          {document.getElementById("menu").style.display="block";zgas();menuOpen=true;}	
     }
     
 //ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -176,10 +177,9 @@ var galerie=[
 	</div>	
 
 <button onClick="onMenuKeyDown();" class="btn">Menu</button>
+<button onClick="loadURL('index---reload.html');" class="btn">Reload</button>
 
-<div id="menu" style="width:100%; display:none; position:fixed; left:0; bottom:0px; background:white; color:black; padding:2px; z-index:2; border:1px solid black;"> 
-
-</div>
+<div id="menu" style=""> </div>
 
 <br /><br /><br />
 </body>

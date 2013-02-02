@@ -1,5 +1,5 @@
 body { padding: 0; margin: 0; font-family: "Lucida Grande", Helvetica, Arial,Verdana, sans-serif;  }
-h1 { font-size: 1.3em; padding: 15px 10px; margin: 0; }
+h1 {font-size:20px; padding:0; margin:5px 0; text-align:center; color:#888;}
 h2 { font-size: 1.1em; padding: 10px; margin: 0; }
 img { border: none; }
 a { color: #444340; }
@@ -22,15 +22,23 @@ a { color: #444340; }
 
 .gallery li {
 float: left;
-width: 165px;
-height: 165px;
+width: 168px;
+height: 168px;
 overflow: hidden;
 padding: 0px;
 margin:10px;
 box-shadow: 6px 6px 10px #444444;
-
+border: 1px solid white;
+border-radius: 8px; 
+-moz-border-radius: 8px; 
+-webkit-border-radius: 8px;
 }
 .gallery li img {width:auto; max-height:133%; margin-left:-10%; margin-top:-5%;}
 .gallery li a {border:none; margin:0;}
 
+#menu  {width:100%; display:none; position:fixed; left:0; bottom:0px; background:white; color:black; padding:2px; z-index:2; border:1px solid black;}
 #menu .btn {margin:0 2px;}
+
+.gallery li.fotoskany img {max-height:192%;}
+.gallery li.balustrady img {max-height:155%;}
+.gallery li.oktawa img {max-height: 130%;margin-left: -14%;margin-top: -16%;}
